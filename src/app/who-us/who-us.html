@@ -1,0 +1,143 @@
+<section id="whous">
+    <div>
+        <div class="container-fluid">
+        <div class="row justify-content-center" id="intro">
+            <div class="col-12 col-xxl-8 text-center">
+                <div class="span-hello mb-5">
+                    <span class="span-style2 text-orange2">من نحن</span>
+                </div>
+
+                <div class="home-text">
+                    <h1 class="text-white">
+                        مهمتنا هي <span>الإعلام والإلهام</span>
+                    </h1>
+
+                    <p class="text-white-50 mt-4">
+                        مدونة متخصصة في فن التصوير الفوتوغرافي، نشارك معكم أسرار المحترفين ونصائح عملية لتطوير مهاراتكم.
+                        نحن شغوفون بمشاركة المعرفة ومساعدة المصورين على تنمية مهاراتهم من خلال محتوى عالي الجودة.
+                    </p>
+
+                    <div class="row row-cols-2 row-cols-md-4 text-white mt-5 info g-3">
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-users"></i>
+                                <span class="d-block">+2مليون</span>
+                                <span class="text-white-50">قارئ شهرياً</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-newspaper"></i>
+                                <span class="d-block">+500</span>
+                                <span class="text-white-50">مقالة منشورة</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <span class="d-block">+50</span>
+                                <span class="text-white-50">كاتب خبير</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span class="d-block">6</span>
+                                <span class="text-white-50">كاتب</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center ourvalues">
+            <div class="col-12 col-xxl-9 text-center">
+
+                <div class="">
+                    <h2 class="text-white position-relative d-inline-block"> قيمنا </h2>
+
+                    <p class="gray-50 mt-4 intro"> المبادئ التي توجه كل ما نقوم بإنشائه </p>
+
+                    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 text-white mt-5 info g-3">
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <h3 class="">الجودة أولاً</h3>
+                                <p class="text-white-50">محتوى مدروس ومكتوب بخبرة </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-bolt"></i>
+                                <h3 class="d-block">+تركيز عملي</h3>
+                                <p class="text-white-50">أمثلة واقعية يمكنك تطبيقها اليوم </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-handshake "></i>
+                                <h3 class="d-block">المجتمع</h3>
+                                <p class="text-white-50">تعلم مع آلاف المصورين </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                                <h3 class="d-block">دائماً محدث</h3>
+                                <p class="text-white-50">أحدث الاتجاهات وأفضل الممارسات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row  knownl text-center g-4">
+                <div class="span-hello mb-5">
+                    <span class="span-style2">فريقنا </span>
+                </div>
+                <h2 class="text-white position-relative d-inline-block"> تعرف على كتابنا</h2>
+                <p class="gray-50 mt-2 intro"> فريقنا من المصورين والكتاب ذوي الخبرة شغوفون بمشاركة معرفتهم مع المجتمع.
+                </p>
+
+
+            @for(post of posts ;track $index){
+                <div class="col-lg-4 col-md-6 col-12 mt-4 ">
+                <div class="inner position-relative">
+                    <div class="image overflow-hidden d-block mx-auto">
+                        <img src="{{post.author.avatar}}" alt="" class="w-100 ">
+                        <span class="text-white"><i class="fa-solid fa-check"></i></span>
+                    </div>
+                    <div class="my-3">
+                        <h4 class="text-white mb-0"> {{post.author.name}}</h4>
+                        <span class="text-orange2">{{post.author.role}} </span>
+                    </div>
+                    <div class="https://twitter.com/adasah"> 
+                        <a href="" class="text-white-50"><i class="fa-brands fa-x-twitter "></i></a>
+                        <a href="https://github.com/adasah" class="text-white-50"><i class="fa-brands fa-github "></i></a>
+                        <a href="https://linkedin.com/company/adasah" class="text-white-50"><i class="fa-brands fa-linkedin "></i></a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+
+        
+    </div>
+    </div>
+    <div class="container-fluid anyQ">
+        <div class="row justify-content-center text-center que">
+            <div class="col-12 col-xxl-5">
+                <div class="inner">
+                    <h2 class="text-white">لديك أسئلة؟ دعنا نتحدث!</h2>
+                    <p class="text-white">نحب أن نسمع منك. سواء كان لديك سؤال حول محتوانا، أو تريد المساهمة، أو تريد فقط إلقاء التحية، لا تتردد في التواصل.</p>
+                    <button class="text-white"><i class="fa-solid fa-envelope"></i>تواصل معنا</button>
+                    <button class="text-white" routerLink="/blog">تصفح المقالات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

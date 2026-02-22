@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Tajawal, system-ui, -apple-system, sans-serif;
+    background-color: black;
+    overflow-x: hidden;
+}
+::selection {
+  background-color: #F97316;
+  color: white;
+}
+:root {
+    --bg-black: #161616;
+    --orange: #D47308;
+    --orange2:#FF6800;
+    --btn-gradient: linear-gradient(to left, #ED5D0E, #F77015);
+    --active-gradient:linear-gradient(to left, #F64C00, #FF6700);
+    --yellow:#FAA21E;
+    --gray-50: rgba(220, 220, 220, 0.895);
+}
+.gray-50{
+    color: var(--gray-50);
+}
+.text-orange {
+    color: var(--orange);
+}
+.text-orange2 {
+    color: var(--orange2);
+}
+
+a {
+    text-decoration: none;
+}
+.inner:hover{
+    cursor: pointer;
+}
+ul li{
+    list-style: none;
+}
+ul{
+    padding-right: 0;
+}
+.span-style {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 20px;
+    border: .0625rem solid var(--orange);
+}
+.active-link2{
+    background-image: var(--active-gradient);
+    color: white !important;
+    border-radius: 20px;
+}
+.span-style2{
+     padding: 6px 11px;
+    border-radius: 20px;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 20px;
+    border: .0625rem solid var(--orange);
+    color: var(--orange2);
+    background-color: #22150B;
+}
+
+::-webkit-scrollbar {
+  width: 10px;  
+}
+
+::-webkit-scrollbar-track {
+  background: #2c2c2c;  
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ff6600;  
+  border-radius: 5px;
+  border: 2px solid #2c2c2c; 
+}
+
+
+
+

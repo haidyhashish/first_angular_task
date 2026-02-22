@@ -1,0 +1,337 @@
+<section id="hello" class="bg-black">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-7 text-center">
+                <div class="span-hello mb-5">
+                    <span class="span-style position-relative">مرحباً بك في عدسة</span>
+                </div>
+
+                <div class="home-text">
+                    <h1 class="text-white">
+                        اكتشف <span>فن</span> <br>
+                        التصوير الفوتوغرافي
+                    </h1>
+
+                    <p class="text-white-50 mt-4">
+                        انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في
+                        التصوير.
+                    </p>
+
+                    <div class="btn-info">
+                        <button class="text-white" routerLink="/blog">
+                            استكشف المقالات <i class="fa-solid fa-arrow-left-long"></i>
+                        </button>
+                        <button class="text-white" routerLink="/whous">
+                            <i class="fa-solid fa-circle-info ms-2"></i> اعرف المزيد
+                        </button>
+                    </div>
+
+                    <div class="row row-cols-2 row-cols-md-4 text-white mt-5 info g-3">
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-newspaper"></i>
+                                <span class="d-block">+50</span>
+                                <span class="text-white-50">مقاله</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-users"></i>
+                                <span class="d-block">+10ألف</span>
+                                <span class="text-white-50">قارئ</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-folder-open"></i>
+                                <span class="d-block">4</span>
+                                <span class="text-white-50">تصنيفات</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="inner">
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <span class="d-block">6</span>
+                                <span class="text-white-50">كاتب</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="articles">
+    <div class="container-fluid">
+        <div class="row row-cols-lg-2 row-cols-1 gx-0">
+            <div class="col">
+                <div class="inner">
+                    <div>
+                        <span class="text-orange span-style mb-2">مميز</span>
+                        <h2 class="text-white">مقالات مختارة</h2>
+                        <p class="text-white-50">محتوى منتقى لبدء رحلة تعلمك</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-lg-end mt-auto align-items-center">
+                <div>
+                    <button class="text-white" routerLink="/blog">عرض الكل <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        @for(post of posts.slice(0,3); track $index){
+        <a href="" [routerLink]="['/blog', post.slug]">
+            <div class="row row-cols-lg-2 row-cols-1 d-flex gx-0">
+                <div class="col image">
+                    <div class="inner overflow-hidden position-relative h-100">
+                        <img src="{{post.image}}" alt="" class="w-100 h-100">
+                        <span class="text-white"><i class="fa-solid fa-star text-white ms-1"></i>مميز</span>
+                    </div>
+                </div>
+                <div class="col text">
+                    <div class="inner  p-4 d-flex flex-column h-100">
+                        <div>
+                            <span class="light">{{post.category}}</span>
+                            <span class="me-3 "><i class="fa-regular fa-clock"></i> {{post.readTime}} </span>
+                        </div>
+                        <div class="mt-3">
+                            <h3 class="text-white article-title">{{post.title}}</h3>
+                            <p class="text-white-50">{{post.excerpt}}</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center mt-auto">
+                            <div class="d-flex align-items-center position-relative author-info">
+                                <div class="image overflow-hidden ms-3"><img src="{{post.author.avatar}}" alt=""
+                                        class="w-100 ">
+                                </div>
+                                <div>
+                                    <span class="text-white d-block">{{post.author.name}}</span>
+                                    <span>{{post.date}} </span>
+                                </div>
+                            </div>
+                            <div class="read-guide">
+                                <span class=""> <strong>اقرأ المقال</strong> <i
+                                        class="fa-solid fa-arrow-left-long me-2"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </a>
+        }
+
+
+
+
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<section id="Categories">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 ">
+                <div class="mb-5 text-center">
+                    <span class="span-style text-orange2">التصنيفات</span>
+                </div>
+
+                <div class="home-text">
+                    <h2 class="text-white text-center">
+                        استكشف حسب الموضوع
+                    </h2>
+
+                    <p class="text-white-50 mt-4 text-center">
+                        اعثر على محتوى مصمم حسب اهتماماتك
+                    </p>
+
+                    <div class="row row-cols-2 row-cols-md-4 mt-5 info g-3">
+                        <a [routerLink]="['/blog/category', 'إضاءة']">
+                            <div class="col">
+                                <div class="inner position-relative">
+                                    <span class="d-inline-block mb-2 text-orange2"><i
+                                            class="fa-solid fa-sun "></i></span>
+                                    <span class="d-block text-white">إضاءة</span>
+                                    <span class="text-white-50">3 مقالة</span>
+                                    <div class="position-absolute text-center text-dark"><i
+                                            class="fa-solid fa-chevron-left "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a [routerLink]="['/blog/category', 'بورتريه']">
+                            <div class="col">
+                                <div class="inner position-relative">
+                                    <span class="d-inline-block mb-2 text-orange2"><i
+                                            class="fa-solid fa-user"></i></span>
+                                    <span class="d-block text-white">بورتريه</span>
+                                    <span class="text-white-50">3 مقالة</span>
+                                    <div class="position-absolute text-center text-dark"><i
+                                            class="fa-solid fa-chevron-left "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a [routerLink]="['/blog/category', 'مناظر طبيعية']">
+                            <div class="col">
+                                <div class="inner position-relative">
+                                    <span class="d-inline-block mb-2 text-orange2"><i
+                                            class="fa-solid fa-mountain-sun"></i></span>
+                                    <span class="d-block text-white">مناظر طبيعية</span>
+                                    <span class="text-white-50">2 مقالة</span>
+                                    <div class="position-absolute text-center text-dark"><i
+                                            class="fa-solid fa-chevron-left "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a [routerLink]="['/blog/category', 'تقنيات']">
+                            <div class="col">
+                                <div class="inner position-relative">
+                                    <span class="d-inline-block mb-2 text-orange2"><i
+                                            class="fa-solid fa-sliders"></i></span>
+                                    <span class="d-block text-white">تقنيات</span>
+                                    <span class="text-white-50">5 مقالة</span>
+                                    <div class="position-absolute text-center text-dark"><i
+                                            class="fa-solid fa-chevron-left "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a [routerLink]="['/blog/category', 'معدات']">
+                            <div class="col">
+                                <div class="inner position-relative">
+                                    <span class="d-inline-block mb-2 text-orange2"><i
+                                            class="fa-solid fa-sun "></i></span>
+                                    <span class="d-block text-white">معدات</span>
+                                    <span class="text-white-50">3 مقالة</span>
+                                    <div class="position-absolute text-center text-dark"><i
+                                            class="fa-solid fa-chevron-left "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section id="new-articles">
+    <div class="container-fluid">
+        <div class="row row-cols-lg-2 row-cols-1 gx-0">
+            <div class="col">
+                <div class="title">
+                    <div>
+                        <span class="text-orange span-style mb-2">الأحدث</span>
+                        <h2 class="text-white mt-3">أحدث المقالات</h2>
+                        <p class="text-white-50">محتوى جديد طازج من المطبعة</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-lg-end mt-auto align-items-center">
+                <div class="read-guide">
+                    <span> <strong>عرض جميع المقالات</strong> <i class="fa-solid fa-arrow-left-long me-2"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-lg-3 mt-5 g-4">
+            @for(post of posts.slice(3,6); track $index){
+            <div class="col px-4">
+                <a href="" [routerLink]="['/blog', post.slug]">
+                    <div class="inner">
+                        <div class="card-img position-relative overflow-hidden">
+                            <img src="{{post.image}}" alt="" class="w-100">
+                            <span class="text-white"> {{post.category}}</span>
+                        </div>
+                        <div class="text-white-50 d-flex align-items-center my-2 px-3 pt-3">
+                            <span><i class="fa-regular fa-clock ms-1"></i>{{post.readTime}}</span>
+                            <span class="bg-secondary"></span>
+                            <span>{{post.date}}</span>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <h3 class="text-white">{{post.title}}</h3>
+                            <p>{{post.excerpt}}</p>
+                        </div>
+                        <div class="card-footer position-relative p-3">
+                            <div class="d-flex">
+                                <div class="image overflow-hidden"><img src="{{post.author.avatar}}"
+                                        alt="{{post.author.name}} " class="w-100"></div>
+                                <div class="me-3">
+                                    <span class="text-white d-block"> {{post.author.name}} </span>
+                                    <span class="text-white-50">{{post.author.role}}</span>
+                                </div>
+                            </div>
+                            <div class="position-absolute text-center d-flex align-content-center"><i
+                                    class="fa-solid fa-chevron-left text-orange2"></i> </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<section id="subscribe">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center text-center align-content-center">
+            <div class="col-lg-8 col-12">
+                <div class="inner ">
+                    <div><span><i class="fa-regular fa-envelope text-white"></i></span></div>
+                    <div class="mt-5">
+                        <h4 class="text-white mb-3">اشترك في <span>نشرتنا الإخبارية</span></h4>
+                        <p>احصل على نصائح التصوير الحصرية ودروس جديدة مباشرة في بريدك الإلكتروني</p>
+                        <div class="p-lg-0 p-4">
+                            <input type="email" placeholder="أدخل بريدك الإلكتروني">
+                            <button class="text-white">اشترك الآن</button>
+                        </div>
+                    </div>
+                    <div class="images d-flex justify-content-center align-items-center mt-4 text-white-50 ">
+                        <div class="overflow-hidden"><img src="./images/3.jpg" alt="" class="w-100"></div>
+                        <div class="overflow-hidden"><img src="./images/4.jpg" alt="" class="w-100"></div>
+                        <div class="overflow-hidden"><img src="./images/6.jpg" alt="" class="w-100"></div>
+                        <span class="mx-3">انضم لـ <strong class="text-white">+10,000</strong> مصور</span>
+                        <span class="ms-3">بدون إزعاج</span>
+                        <span class=""> إلغاء الاشتراك في أي وقت</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,192 @@
+<section id="blog">
+    <div class="container-fluid">
+        <div class="text-center ">
+            <span class="span-style text-orange2"><i class="fa-regular fa-newspaper ms-1"></i>مدونتنا</span>
+            <h1 class="text-white m-4">استكشف <span>مقالاتنا</span></h1>
+            <p class="mt-3">اكتشف الدروس والرؤى وأفضل الممارسات للتطوير الحديث</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="blog-controls">
+            <div class=" d-md-flex justify-content-md-between">
+                <div class="search">
+                    <div class="inner position-relative">
+                        <input type="text" placeholder="ابحث في المقالات..." id="search"
+                            (input)="search($event.target.value)">
+                        <i class="fa-solid fa-magnifying-glass text-white-50 position-absolute"></i>
+                    </div>
+                </div>
+
+                <div class="inner btn-filters text-center">
+                    <button class="text-white-50" (click)="filter('الكل')"
+                        [class.active-link2]="category === 'الكل'">جميع المقالات</button>
+                    <button class="text-white-50" (click)="filter('إضاءة')" [class.active-link2]="category === 'إضاءة'">
+                        إضاءة</button>
+                    <button class="text-white-50" (click)="filter('بورتريه')"
+                        [class.active-link2]="category === 'بورتريه'">بورتريه </button>
+                    <button class="text-white-50" (click)="filter('مناظر طبيعية')"
+                        [class.active-link2]="category === 'مناظر طبيعية'">مناظر طبيعية </button>
+                    <button class="text-white-50" (click)="filter('تقنيات')"
+                        [class.active-link2]="category === 'تقنيات'"> تقنيات</button>
+                    <button class="text-white-50" (click)="filter('معدات')"
+                        [class.active-link2]="category === 'معدات'">معدات </button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="mt-5 d-flex justify-content-between">
+            <div class="text-white-50">
+                @if(category === 'الكل'){
+                عرض <span class="text-white">{{totalPosts()}}</span> مقالات
+                }
+                @else{
+                عرض <span class="text-white">{{totalPosts()}}</span> مقالات في <span
+                    class="text-orange2">{{category}}</span>
+                }
+            </div>
+            <div>
+                <button class="text-white-50" (click)="view = 'grid'" [class.active-link2]="view === 'grid'"><i
+                        class="fa-solid fa-border-all"></i></button>
+                <button class="text-white-50" (click)="view = 'list'" [class.active-link2]="view === 'list'"><i
+                        class="fa-solid fa-bars"></i></button>
+               @if(searchTerm !== '' || category !== 'الكل'){
+                 <button class="text-white-50 rest"  (click)="reset()"><i class="fa-solid fa-xmark"></i> مسح الفلاتر</button>
+               }
+            </div>
+        </div>
+
+        @if(postsInPage().length > 0){
+             @if(view === 'grid'){
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-4 g-4">
+            @for(post of postsInPage();track post.id){
+            <div class="col px-4">
+                <a [routerLink]="['/blog', post.slug]" class="text-decoration-none">
+                    <div class="inner h-100">
+                        <div class="card-img position-relative overflow-hidden">
+                            <img src="{{post.image}}" alt="" class="w-100">
+                            <span class="text-white">{{post.category}}</span>
+                        </div>
+                        <div class="text-white-50 d-flex align-items-center my-2 px-3 pt-3">
+                            <span><i class="fa-regular fa-clock ms-1"></i>{{ post.readTime}}</span>
+                            <span class="bg-secondary"></span>
+                            <span>{{post.date}}</span>
+                        </div>
+                        <div class="px-3 pb-3">
+                            <h3 class="text-white">{{post.title}}</h3>
+                            <p>{{post.excerpt}}</p>
+                        </div>
+                        <div class="card-footer position-relative p-3">
+                            <div class="d-flex">
+                                <div class="image overflow-hidden"><img src="{{post.author.avatar}}" alt=""
+                                        class="w-100">
+                                </div>
+                                <div class="me-3">
+                                    <span class="text-white d-block">{{post.author.name}}</span>
+                                    <span class="text-white-50"> {{post.author.role}}</span>
+                                </div>
+                            </div>
+                            <div class="position-absolute text-center d-flex align-content-center"><i
+                                    class="fa-solid fa-chevron-left text-orange2"></i> </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            }
+
+
+        </div>
+        }
+        @if(view === 'list'){
+        <div class="row list gy-4 gx-0 overflow-hidden mt-4">
+            @for(post of postsInPage(); track post.id){
+            <a [routerLink]="['/blog', post.slug]" class="text-decoration-none">
+                <div class="post-wrapper d-flex w-100 overflow-hidden">
+                    <div class="col-4">
+                        <div class="inner h-100 w-100 overflow-hidden ">
+                            <div class="card-img overflow-hidden h-100 position-relative">
+                                <img src="{{post.image}}" alt="" class="w-100 h-100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-8 h-100">
+                        <div class="inner">
+                            <div class="text-white-50 d-flex align-items-center my-2 px-3 pt-3">
+                                <span class="text-orange2">{{post.category}}</span>
+                                <span class="mx-3"><i class="fa-regular fa-clock ms-1"></i>{{ post.readTime}} </span>
+                                <span> <i class="fa-regular fa-calendar ms-2"></i> {{post.date}}</span>
+                            </div>
+                            <div class="px-3 pb-3">
+                                <h3 class="text-white">{{post.title}}</h3>
+                                <p>{{post.excerpt}}</p>
+                            </div>
+                            <div class="card-footer p-3 d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <div class="image overflow-hidden"><img src="{{post.author.avatar}}" alt=""
+                                            class="w-100"></div>
+                                    <div class="me-3">
+                                        <span class="text-white d-block">{{post.author.name}}</span>
+                                        <span class="text-white-50">{{post.author.role}}</span>
+                                    </div>
+                                </div>
+                                <div class="text-orange2 read-guide"> <span> اقرأ المقال</span><i
+                                        class="fa-solid fa-arrow-left-long me-2"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            }
+        </div>
+
+        }
+        }
+        @else {
+               <div class="notfound d-flex justify-content-center align-items-center">
+            <div class="text-center">
+                <div class="face d-inline-block">
+                <i class="fa-regular fa-face-frown text-white-50"></i>
+            </div>
+            <span class="text-white d-block">لا توجد مقالات</span>
+            <p class="text-white-50">حاول تعديل البحث أو الفلتر للعثور على ما تبحث عنه</p>
+            <button class="text-white" (click)="reset()"><i class="fa-solid fa-arrows-rotate"></i>إعادة تعيين الفلاتر</button>
+            </div>
+        </div>
+
+        }
+       
+
+
+
+     
+
+
+        @if(totalPages() > 1){
+        <div class="text-center mt-5 move-pages">
+            <button class="text-white" [class.text-white-50]="currentPage === 1" (click)="prevPage()"
+                [disabled]="currentPage === 1"><i class="fa-solid fa-chevron-right"></i></button>
+            @for(page of listNumOfPages();track $index){
+            <button class="text-white-50" (click)="movePages(page)"
+                [class.active-link]="currentPage === page">{{page}}</button>
+            }
+
+            <button class="text-white" [class.text-white-50]="currentPage === totalPages()" (click)="nextPage()"
+                [disabled]="currentPage === totalPages()"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="mt-3"><span class="text-white-50">صفحة {{currentPage}} من {{totalPages()}}</span></div>
+        </div>
+
+        }
+
+
+
+
+
+
+
+    </div>
+
+</section>

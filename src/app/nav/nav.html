@@ -1,0 +1,37 @@
+<section id="nav">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
+        <div class="container-fluid">
+            <a href="" class="d-flex align-items-center logo-link">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="" class="w-100">
+                </div>
+                <div>
+                    <span class="d-block text-light">عدسة</span>
+                    <span class="text-orange">عالم التصوير الفوتوغرافي</span>
+                </div>
+            </a>
+            <button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" id="navbar-toggler" (click)="check()">
+                <i class="fa-solid" [class.fa-bars]="!isOpen" [class.fa-xmark]="isOpen"></i>
+            </button>
+
+            <div class="collapse navbar-collapse align-items-center"
+                id="navbarSupportedContent">
+
+                <div class="nav-links mx-auto">
+                    <a routerLinkActive="active-link" routerLink="/home"  class="text-white-50">الرئيسية</a>
+                    <a routerLinkActive="active-link" routerLink="/blog"  class="text-white-50">المدونة</a>
+                    <a routerLinkActive="active-link" routerLink="/whous"  class="text-white-50">من نحن</a>
+                </div>
+                <div class="btn-start">
+                    <i class="fa-solid fa-magnifying-glass text-white-50"></i>
+                    <button class="text-light" routerLink="/blog">ابدأ القراءة</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </nav>
+</section>

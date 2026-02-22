@@ -1,0 +1,184 @@
+<section id="details">
+    @if(post){
+    <div class="image position-relative overflow-hidden">
+        <img src="{{post.image}}" alt="" class="w-100 h-100 object-fit-cover">
+
+        <div class="icon position-absolute text-white-50">
+            <a href="" class="text-white-50" [routerLink]="['/home']"><i class="fa-solid fa-home"></i></a>
+            <span><i class="fa-solid fa-angle-left"></i></span>
+            <a href="" class="text-white-50" [routerLink]="['/blog']">المدونة</a>
+            <span><i class="fa-solid fa-angle-left"></i></span>
+            <a href="" class="text-orange2" [routerLink]="['/blog']">{{post.category}}</a>
+        </div>
+        <div class="title">
+            <div class="mb-3">
+                <a class="text-white" [routerLink]="['/blog/category', post.category]"> {{ post.category }}</a>
+
+                <span class="text-white-50"><i class="fa-regular fa-clock ms-1"></i>{{post.readTime}} </span>
+                <span class="text-white-50"> <i class="fa-regular fa-calendar ms-2"></i>{{post.date}} </span>
+            </div>
+            <h1 class="text-white">{{post.title}}</h1>
+            <div class="d-flex align-items-center mt-4">
+                <div class="auther-img overflow-hidden"><img src="{{post.author.avatar}}" alt="" class="w-100"></div>
+                <div class="auther-details me-2">
+                    <span class="text-white d-block"> {{post.author.name}}</span>
+                    <span class="text-white-50"> {{post.author.role}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-lg-9 col-12 order-2 order-lg-1">
+                <div class="inner">
+                    <div class="p-strat">
+                        <p class="gray-50 d-inline">{{post.excerpt}}</p>
+                    </div>
+                    <p class="gray-50 mt-4">{{intro}}</p>
+                    @for(sec of sections ;track $index){
+                    <div class="section" id="section-{{$index}}">
+                        <div class="d-flex align-items-center">
+                            <span>
+                                <i class="fa-solid fa-camera text-orange2"></i>
+                            </span>
+                            <h2 class="text-white me-3">{{sec.title}}</h2>
+                        </div>
+                        @for(p of sec.paragraphs ;track $index) {
+                        <p class="text-white mt-3">{{ p }}</p>
+                        }
+                    </div>
+                    }
+                    <div class="wsom">
+                        <div class="mb-4">
+                            <span><i class="fa-solid fa-tags text-orange2"></i></span>
+                            <span class="text-white">الوسوم</span>
+                        </div>
+
+                        @for (tag of post.tags; track $index) {
+                        <a href="" class="text-white-50">#{{ tag }}</a>
+                        }
+
+                    </div>
+                    <div class="share d-flex justify-content-between align-content-center mt-4">
+                        <div>
+                            <span><i class="fa-solid fa-share-nodes  text-orange2"></i></span>
+                            <span class="text-white">شارك المقال</span>
+                        </div>
+                        <div>
+                            <a href="https://twitter.com/adasah" target="_blank" class="text-white-50"><i
+                                    class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://linkedin.com/company/adasah" target="_blank" class="text-white-50"><i
+                                    class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="" class="text-white-50"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="" class="text-white-50"><i class="fa-solid fa-link"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="auther d-sm-flex align-content-center mt-4 ">
+                        <div class="img overflow-hidden mx-auto mx-md-0">
+                            <img src="{{post.author.avatar}}" alt="" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="me-sm-3 me-0">
+                            <span class="text-orange2 d-block">كاتب المقال</span>
+                            <span class="d-block text-white"> {{post.author.name}}</span>
+                            <span class="text-white-50 mt-2">{{post.author.role}} </span>
+                            <p class="gray-50 mt-3">مصور محترف شغوف بمشاركة المعرفة والخبرات في عالم التصوير
+                                الفوتوغرافي.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12 order-1 order-lg-2">
+                <div class="sidebar position-sticky ">
+                    <div class="sidebar-list">
+                        <div class="mb-4">
+                            <span><i class="fa-solid fa-list text-orange2"></i></span>
+                            <span class="text-white">محتويات المقال</span>
+                        </div>
+
+                        <ul>
+                            @for(sec of sections ;track $index){
+                            <li class="my-2"><a routerLink="." fragment="section-{{$index}}"
+                                    class="text-white-50"><span>{{$index+1}}</span> {{sec.title}}</a></li>
+                            }
+
+
+
+                        </ul>
+                    </div>
+
+                    <div class="detai d-flex justify-content-between text-center mt-4">
+                        <div>
+                            <i class="fa-regular fa-clock text-orange2"></i>
+                            <span class="text-white d-block">{{ post.readTime}} </span>
+                            <span class="text-white-50">وقت القراءة</span>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-calendar text-orange2"></i>
+                            <span class="text-white d-block"> {{post.date}} </span>
+                            <span class="text-white-50">تاريخ النشر</span>
+                        </div>
+                    </div>
+
+                    <div class="att text-center mt-4">
+                        <div class=" d-inline-block mb-3">
+                            <i class="fa-solid fa-envelope text-orange2"></i>
+                        </div>
+                        <span class="text-white d-block">لا تفوّت جديدنا</span>
+                        <p class="text-white-50">اشترك للحصول على أحدث المقالات</p>
+                        <button class="text-white">تصفح المزيد</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+
+
+    <div class="container-fluid articals">
+        <div class="love d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center ">
+                <div class="icon"><span><i class="fa-solid fa-images text-orange2"></i></span></div>
+                <div class="text"><span class="text-white">مقالات قد تعجبك</span>
+                    <p class="text-white-50">استكشف المزيد من المحتوى المميز</p>
+                </div>
+            </div>
+            <div class="view-all text-orange2">
+                <span>عرض الكل<i class="fa-solid fa-arrow-left me-2"></i></span>
+
+            </div>
+
+
+        </div>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-4 g-4">
+            @for(recommendedpost of recommended ;track $index){
+            <div class="col">
+                <a [routerLink]="['/blog', recommendedpost.slug]">
+                    <div class="inner overflow-hidden">
+                        <div class="imagee overflow-hidden position-relative">
+                            <img src="{{recommendedpost.image}}" alt="" class="w-100">
+                            <span class="text-white position-absolute">{{recommendedpost.category}} </span>
+                        </div>
+                        <h3 class="text-white">{{recommendedpost.title}}</h3>
+                        <div class="card-footer d-flex justify-content-between align-content-center align-items-center">
+                            <div class="ima d-flex align-content-center align-items-center">
+                                <div class="overflow-hidden ms-2"><img src="{{recommendedpost.author.avatar}}"
+                                        alt="{{recommendedpost.author.name}}" class="w-100"></div>
+                                <span class="text-white-50 d-block">{{recommendedpost.author.name}}</span>
+                            </div>
+                            <span class="text-white-50 d-block">{{recommendedpost.readTime}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            }
+
+
+        </div>
+    </div>
+
+</section>

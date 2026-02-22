@@ -1,0 +1,51 @@
+<section id="footer" class="position-relative">
+    <div class="container-fluid">
+        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
+            <div class="col logo">
+                <div class="inner">
+                    <span class="text-white ms-3 d-inline-block">ع</span>
+                    <span class="text-white">عدسة</span>
+                    <p class="text-white-50 mt-3">مدونة متخصصة في فن التصوير الفوتوغرافي، نشارك معكم أسرار المحترفين
+                        ونصائح عملية
+                        لتطوير مهاراتكم.</p>
+
+                    <div>
+                        <a href="https://twitter.com/adasah" target="_blank"  class="text-white-50"><i class="fa-brands fa-x-twitter "></i></a>
+                        <a href="https://github.com/adasah" target="_blank"  class="text-white-50"><i class="fa-brands fa-github "></i></a>
+                        <a href="https://linkedin.com/company/adasah" target="_blank"  class="text-white-50"><i class="fa-brands fa-linkedin "></i></a>
+                        <a href="https://youtube.com/@adasah" target="_blank"  class="text-white-50"><i class="fa-brands fa-youtube "></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inner me-0 me-lg-5">
+                    <h4 class="text-white">استكشف</h4>
+                    <ul>
+                        <li class="mb-2 position-relative"> <a routerLink="/home" class="text-white-50"><i class="fa-solid fa-chevron-left"></i> الرئيسية</a></li>
+                        <li class="mb-2"><a routerLink="/blod" class="text-white-50"><i class="fa-solid fa-chevron-left"></i>المدونة</a></li>
+                        <li class="mb-2"><a routerLink="/whous" class="text-white-50"><i class="fa-solid fa-chevron-left"></i>من نحن</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inner me-0 me-lg-5">
+                    <h4 class="text-white">التصنيفات</h4>
+                    <ul>
+                        <li class="mb-2 position-relative"> <a [routerLink]="['/blog/category', 'إضاءة']"class="text-white-50"><i class="fa-solid fa-chevron-left"></i> إضاءة</a></li>
+                        <li class="mb-2"><a [routerLink]="['/blog/category', 'بورتريه']" class="text-white-50"><i class="fa-solid fa-chevron-left"></i>بورتريه</a></li>
+                        <li class="mb-2"><a [routerLink]="['/blog/category', 'مناظر طبيعية']" class="text-white-50"><i class="fa-solid fa-chevron-left"></i>مناظر طبيعية </a></li>
+                        <li class="mb-2"><a [routerLink]="['/blog/category', 'تقنيات']" class="text-white-50"><i class="fa-solid fa-chevron-left"></i> تقنيات </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inner me-0 me-lg-5">
+                    <h4 class="text-white">ابقى على اطلاع</h4>
+                    <p class="text-white-50 mt-2">اشترك للحصول على أحدث المقالات والتحديثات.</p>
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني">
+                    <button class="text-white mt-3" routerLink="/home">اشترك</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
